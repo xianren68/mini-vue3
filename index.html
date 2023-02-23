@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/Render.js"></script>
+</head>
+<body>
+    <div id = "app"></div>
+    <script>
+    // 1.创建vnode
+    let v1 = h("div",{
+        })
+    // 2.挂载vnode
+    let app = document.querySelector("#app")
+    mount(v1,app)
+    // 3.创建新的Vnode，通过patch比较
+    // pathch的意义在于较小的改变元素，能修改属性就不会将整个元素删除再添加
+    let v2 = h('h2',{
+        class:"heihie"
+    },"hahahaha")
+    setTimeout(()=>{
+        patch(v1,v2)
+    },3000)
+    </script>
+</body>
+</html>
